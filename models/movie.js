@@ -10,3 +10,5 @@ let movieModel = mongoose.Schema({
 {
     Collection: "movies"
 })
+
+module.exports = mongoose.model('Movie', movieModel);
