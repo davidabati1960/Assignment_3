@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/main_nav.ejs') %>
+
+<!-- Main Content -->
+<main class="container my-4">
+  <div class="row">
+    <div class="offset-md-1 col-md-10">
+      <h1><i class="fa-solid fa-film"></i> <%= title %></h1>
+      <a href="/movies/add" class="btn btn-primary my-2" role="button">
+        <i class="fas fa-plus-circle"></i> Add a Movie
+      </a>
+      <br>
+
+      <table class="table table-bordered table-striped table-hover mt-2">
+        <!-- Header Row -->
+        <thead class="table-light">
+          <tr>
+            <th class="text-center col-3">Title</th>
+            <th class="text-center col-2">Director</th>
+            <th class="text-center col-1">Release Year</th>
+            <th class="text-center col-2">Genre</th>
+            <th class="text-center col-1">Rating</th>
+            <th class="text-center col-3">Actions</th>
+          </tr>
+        </thead>
+
+        <!-- Data Rows -->
+        <tbody>
+          <% for (let count = 0; count < MovieList.length; count++) { %>
+            <tr>
+              <td class="text-center align-middle"><%= MovieList[count].title %></td>
+              <td class="text-center align-middle"><%= MovieList[count].director %></td>
+              <td class="text-center align-middle"><%= MovieList[count].releaseYear %></td>
+              <td class="text-center align-middle"><%= MovieList[count].genre %></td>
+              <td class="text-center align-middle"><%= MovieList[count].rating %></td>
+              <td class="text-center align-middle">
+                <a href="/movies/edit/<%= MovieList[count]._id %>" class="btn btn-primary btn-sm">
+                  <i class="fas fa-pencil-alt"></i> Edit
+                </a>
+                <a href="/movies/delete/<%= MovieList[count]._id %>"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Are you sure you want to delete <%= MovieList[count].title %>?');">
+                  <i class="fas fa-trash-alt"></i> Delete
+                </a>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>
