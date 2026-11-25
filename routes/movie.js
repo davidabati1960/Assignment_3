@@ -22,8 +22,16 @@ router.get('/', async  (req, res, next) => {
     }
 })
 
-/* Create operation - POST a new movie */
+/* Create/Add Operation */
+/* Get Operation */
+router.get('/add', async (req, res, next) => {});
+/* Post Operation */
+router.post('/add', async (req, res, next) => {});
+/* Update Operation */
+router.get('/edit/:id', async (req, res, next) => {});
+/* Post Operation */
+router.post('/edit/:id', async (req, res, next) => {});
+/* Delete Operation */
+router.get('/delete/:id', async (req, res, next) => {});
 
-/* Update operation - PUT an existing movie  */
-
-/* Delete operation - DELETE an existing movie  */
+module.exports = router;
