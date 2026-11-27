@@ -62,7 +62,21 @@ router.post('/add', async (req, res, next) => {
 
 
 /* Update Operation */
-router.get('/edit/:id', async (req, res, next) => {});
+
+router.get('/edit/:id', async (req, res, next) => {
+    try {
+        const id = req.params.id;
+        const movieToEdit = await Movie.findById(id);
+        res.render('Movies/edit', {
+            title: 'Edit Movie',
+            Movie: movieToEdit
+        });
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
+
 
 /* Post Operation */
 router.post('/edit/:id', async (req, res, next) => {});

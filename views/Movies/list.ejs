@@ -34,10 +34,10 @@
               <td class="text-center align-middle"><%= MovieList[count].genre %></td>
               <td class="text-center align-middle"><%= MovieList[count].rating %></td>
               <td class="text-center align-middle">
-                <a href="/movies/edit/<%= MovieList[count]._id %>" class="btn btn-primary btn-sm">
+                <a href="/Movies/edit/<%= MovieList[count]._id %>" class="btn btn-primary btn-sm">
                   <i class="fas fa-pencil-alt"></i> Edit
                 </a>
-                <a href="/movies/delete/<%= MovieList[count]._id %>"
+                <a href="/Movies/delete/<%= MovieList[count]._id %>"
                    class="btn btn-danger btn-sm"
                    onclick="return confirm('Are you sure you want to delete <%= MovieList[count].title %>?');">
                   <i class="fas fa-trash-alt"></i> Delete
