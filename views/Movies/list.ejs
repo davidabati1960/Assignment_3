@@ -1,43 +1,43 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/main_nav.ejs') %>
 
-<!-- Main Content -->
-<main class="container my-4">
-  <div class="row">
-    <div class="offset-md-1 col-md-10">
-      <h1><i class="fa-solid fa-film"></i> <%= title %></h1>
-      <a href="/movies/add" class="btn btn-primary my-2" role="button">
+<img src="/Assets/images/movie-bg.jpg" alt="Movie Background" class="bg-image">
+<div class="movies-page">
+  <div class="container">
+    <!-- Top Header & Add Button Row -->
+    <div class="movies-header">
+      <h1><i class="bi bi-film"></i> <%= title %></h1>
+      <a href="/movies/add" class="btn btn-primary">
         <i class="fas fa-plus-circle"></i> Add a Movie
       </a>
-      <br>
+    </div>
 
-      <table class="table table-bordered table-striped table-hover mt-2">
-        <!-- Header Row -->
-        <thead class="table-light">
+    <!-- Responsive Movie Table -->
+    <div class="table-responsive">
+      <table class="table table-dark table-striped table-hover align-middle text-center">
+        <thead>
           <tr>
-            <th class="text-center col-3">Title</th>
-            <th class="text-center col-2">Director</th>
-            <th class="text-center col-1">Release Year</th>
-            <th class="text-center col-2">Genre</th>
-            <th class="text-center col-1">Rating</th>
-            <th class="text-center col-3">Actions</th>
+            <th class="text-start">Title</th>
+            <th>Director</th>
+            <th>Release Year</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Actions</th>
           </tr>
         </thead>
-
-        <!-- Data Rows -->
         <tbody>
           <% for (let count = 0; count < MovieList.length; count++) { %>
             <tr>
-              <td class="text-center align-middle"><%= MovieList[count].title %></td>
-              <td class="text-center align-middle"><%= MovieList[count].director %></td>
-              <td class="text-center align-middle"><%= MovieList[count].releaseYear %></td>
-              <td class="text-center align-middle"><%= MovieList[count].genre %></td>
-              <td class="text-center align-middle"><%= MovieList[count].rating %></td>
-              <td class="text-center align-middle">
-                <a href="/Movies/edit/<%= MovieList[count]._id %>" class="btn btn-primary btn-sm">
+              <td class="text-start fw-bold"><%= MovieList[count].title %></td>
+              <td><%= MovieList[count].director %></td>
+              <td><%= MovieList[count].releaseYear %></td>
+              <td><span class="badge bg-secondary"><%= MovieList[count].genre %></span></td>
+              <td><span class="badge bg-warning text-dark">★ <%= MovieList[count].rating %> / 10</span></td>
+              <td>
+                <a href="/movies/edit/<%= MovieList[count]._id %>" class="btn btn-primary btn-sm">
                   <i class="fas fa-pencil-alt"></i> Edit
                 </a>
-                <a href="/Movies/delete/<%= MovieList[count]._id %>"
+                <a href="/movies/delete/<%= MovieList[count]._id %>"
                    class="btn btn-danger btn-sm"
                    onclick="return confirm('Are you sure you want to delete <%= MovieList[count].title %>?');">
                   <i class="fas fa-trash-alt"></i> Delete
@@ -49,6 +49,6 @@
       </table>
     </div>
   </div>
-</main>
+</div>
 
 <%- include('../partials/footer.ejs') %>

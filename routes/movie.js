@@ -79,9 +79,41 @@ router.get('/edit/:id', async (req, res, next) => {
 
 
 /* Post Operation */
-router.post('/edit/:id', async (req, res, next) => {});
+router.post('/edit/:id', async (req, res, next) => {
+    try {
+        let id = req.params.id;
+        let updatedMovie = Movie({
+            "_id": id,
+            "title": req.body.title,
+            "director": req.body.director,
+            "releaseYear": req.body.releaseYear,
+            "genre": req.body.genre,
+            "rating": req.body.rating
+        });
+        Movie.findByIdAndUpdate(id, updatedMovie).then(() => {
+            res.redirect('/movies');
+        });
+    } catch (err) {
+        console.error(err);
+        res.render('Movies/list', {
+            error: 'Error on Server'
+        });
+    }
+});
 
 /* Delete Operation */
-router.get('/delete/:id', async (req, res, next) => {});
+router.get('/delete/:id', async (req, res, next) => {
+    try {
+        let id = req.params.id;
+        Movie.deleteOne({ _id: id }).then(() => {
+            res.redirect('/movies');
+        });
+    } catch (err) {
+        console.error(err);
+        res.render('Movies/list', {
+            error: 'Error on Server'
+        });
+    }
+});
 
 module.exports = router;

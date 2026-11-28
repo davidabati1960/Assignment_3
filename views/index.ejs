@@ -1,13 +1,56 @@
-<%- include('partials/header') %>
-<%- include('partials/main_nav') %>
-    <h1 id="title"><%= title %></h1>
-        <div id="home">
-            
-            
-            <p id="intro">
-                Here you can learn more about me and explore
-                some of the projects I have worked on. Refer to the nav
-                bar for more information about me, my projects, and how to contact me.
-            </p>
+<%- include('partials/header.ejs') %>
+<%- include('partials/main_nav.ejs') %>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="container">
+    <h1>Movie Management System</h1>
+    <p>
+      Welcome to your personal movie collection. Keep track of the movies you have watched,
+      including their director, release year, genre, and rating.
+    </p>
+    <a href="/movies" class="btn btn-primary btn-lg">View Movie Collection</a>
+    <a href="/movies/add" class="btn btn-secondary btn-lg">Add a Movie</a>
+  </div>
+</div>
+
+<!-- Main Features Section -->
+<div class="container features">
+  <h2 class="text-center">Main Features</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">View Collection</h5>
+          <p class="card-text">
+            Browse all your saved movies in one organized table with full details.
+          </p>
         </div>
-<%- include('partials/footer') %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add Movies</h5>
+          <p class="card-text">
+            Easily add new movies with title, director, release year, genre, and rating.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Edit &amp; Delete</h5>
+          <p class="card-text">
+            Update movie details anytime or remove entries you no longer want.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
