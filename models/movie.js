@@ -1,5 +1,7 @@
+// Import Mongoose 
 const {default: mongoose, Collection} = require('mongoose');
 
+// Define the schema structure for a Movie document in MongoDB
 let movieModel = mongoose.Schema({
     title:  String,
     director:String,
